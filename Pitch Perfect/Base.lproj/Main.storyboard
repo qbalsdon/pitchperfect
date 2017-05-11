@@ -1,9 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="opr-9o-pnd">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="opr-9o-pnd">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Record-->
@@ -15,35 +20,35 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Htq-57-39F">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
                                 <state key="normal" image="microphone">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="recordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iza-aE-jJa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svT-qi-GyD">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="162.5" y="474" width="50" height="50"/>
                                 <state key="normal" image="stop">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="stopRecordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2rt-Fx-e8C"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to record" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bu8-ej-iqN">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <rect key="frame" x="143.5" y="413.5" width="88.5" height="20"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="Bu8-ej-iqN" secondAttribute="centerX" id="0WQ-hA-UeY"/>
                             <constraint firstItem="Htq-57-39F" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="56I-p2-bbf"/>
@@ -59,12 +64,12 @@
                                 <exclude reference="Bu8-ej-iqN"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="56I-p2-bbf"/>
-                                <exclude reference="N50-hk-qMA"/>
+                                <exclude reference="OCH-dQ-VLL"/>
                                 <exclude reference="0WQ-hA-UeY"/>
                                 <exclude reference="A3G-4l-1uH"/>
+                                <exclude reference="56I-p2-bbf"/>
+                                <exclude reference="N50-hk-qMA"/>
                                 <exclude reference="scI-IP-OuT"/>
-                                <exclude reference="OCH-dQ-VLL"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -74,12 +79,12 @@
                                 <include reference="Bu8-ej-iqN"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="56I-p2-bbf"/>
-                                <include reference="N50-hk-qMA"/>
+                                <include reference="OCH-dQ-VLL"/>
                                 <include reference="0WQ-hA-UeY"/>
                                 <include reference="A3G-4l-1uH"/>
+                                <include reference="56I-p2-bbf"/>
+                                <include reference="N50-hk-qMA"/>
                                 <include reference="scI-IP-OuT"/>
-                                <include reference="OCH-dQ-VLL"/>
                             </mask>
                         </variation>
                     </view>
@@ -104,56 +109,56 @@
                         <viewControllerLayoutGuide type="bottom" id="KHf-6V-8MP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3Vz-mH-4Ne">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBO-NC-DjD">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="46" y="114" width="100" height="100"/>
                                 <state key="normal" image="slow">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="slowButton:" destination="xfv-Q5-Giz" eventType="touchUpInside" id="bZc-Ar-1u4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIY-QG-jSC">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="229" y="114" width="100" height="100"/>
                                 <state key="normal" image="fast">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="fastButton:" destination="xfv-Q5-Giz" eventType="touchUpInside" id="0nh-n6-daf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sjx-fv-Mql">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="162.5" y="467" width="50" height="50"/>
                                 <state key="normal" image="stop">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="stopButton:" destination="xfv-Q5-Giz" eventType="touchUpInside" id="hLc-zW-Cmc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgy-g4-fGq">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="46" y="314" width="100" height="100"/>
                                 <state key="normal" image="chipmunk">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="chipmunkButton:" destination="xfv-Q5-Giz" eventType="touchUpInside" id="st8-rf-Zkf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P58-r8-2wv">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <rect key="frame" x="229" y="314" width="100" height="100"/>
                                 <state key="normal" image="darth">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="darthVaderButton:" destination="xfv-Q5-Giz" eventType="touchUpInside" id="0JK-eS-TBh"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="P58-r8-2wv" secondAttribute="trailing" constant="30" id="5vA-m8-fqH"/>
                             <constraint firstAttribute="centerX" secondItem="Sjx-fv-Mql" secondAttribute="centerX" id="6fw-hK-UOS"/>
@@ -175,16 +180,16 @@
                                 <exclude reference="P58-r8-2wv"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Wn5-j0-Wpz"/>
-                                <exclude reference="pXK-60-ctL"/>
+                                <exclude reference="qdw-zx-s7M"/>
+                                <exclude reference="5vA-m8-fqH"/>
+                                <exclude reference="8bm-vN-yGY"/>
+                                <exclude reference="6fw-hK-UOS"/>
                                 <exclude reference="9Ih-Mi-gd1"/>
                                 <exclude reference="Nrd-9H-MCe"/>
                                 <exclude reference="BKo-1A-qrT"/>
                                 <exclude reference="PbK-Zs-am0"/>
-                                <exclude reference="5vA-m8-fqH"/>
-                                <exclude reference="8bm-vN-yGY"/>
-                                <exclude reference="6fw-hK-UOS"/>
-                                <exclude reference="qdw-zx-s7M"/>
+                                <exclude reference="Wn5-j0-Wpz"/>
+                                <exclude reference="pXK-60-ctL"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -196,16 +201,16 @@
                                 <include reference="P58-r8-2wv"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Wn5-j0-Wpz"/>
-                                <include reference="pXK-60-ctL"/>
+                                <include reference="qdw-zx-s7M"/>
+                                <include reference="5vA-m8-fqH"/>
+                                <include reference="8bm-vN-yGY"/>
+                                <include reference="6fw-hK-UOS"/>
                                 <include reference="9Ih-Mi-gd1"/>
                                 <include reference="Nrd-9H-MCe"/>
                                 <include reference="BKo-1A-qrT"/>
                                 <include reference="PbK-Zs-am0"/>
-                                <include reference="5vA-m8-fqH"/>
-                                <include reference="8bm-vN-yGY"/>
-                                <include reference="6fw-hK-UOS"/>
-                                <include reference="qdw-zx-s7M"/>
+                                <include reference="Wn5-j0-Wpz"/>
+                                <include reference="pXK-60-ctL"/>
                             </mask>
                         </variation>
                     </view>

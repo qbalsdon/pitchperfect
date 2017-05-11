@@ -17,26 +17,32 @@ class PlaySoundViewController: UIViewController {
     var audioFile : AVAudioFile!
     var audioPlayerNode : AVAudioPlayerNode!
     var darthBackTrack : AVAudioPlayer!
-    var interval : NSTimeInterval!
-    var timer : NSTimer!
+    var interval : TimeInterval!
+    var timer : Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil);
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback);
         
-        audioEngine = AVAudioEngine();
-        audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil);
+
+            try audioFile = AVAudioFile(forWriting: receivedAudio.filePathUrl as URL, settings:[:]);
         
-        audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil);
+        try audioPlayer = AVAudioPlayer(contentsOf: receivedAudio.filePathUrl);
         interval = audioPlayer.duration + 2;
         audioPlayer.enableRate = true;
         
-        if var darthFP = NSBundle.mainBundle().pathForResource("Darth-vader-breathing", ofType: "wav"){
-            var darthUrl = NSURL.fileURLWithPath(darthFP);
-            darthBackTrack = AVAudioPlayer(contentsOfURL: darthUrl, error: nil);
+        if let darthFP = Bundle.main.path(forResource: "Darth-vader-breathing", ofType: "wav"){
+            let darthUrl = URL(fileURLWithPath: darthFP);
+            try darthBackTrack = AVAudioPlayer(contentsOf: darthUrl);
             darthBackTrack.volume = 0.05;
             darthBackTrack.numberOfLoops = 100;
         }
+        } catch {
+            print("Error in playback")
+        }
+        
+    
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,52 +67,56 @@ class PlaySoundViewController: UIViewController {
         audioPlayer.currentTime = 0.0;
     }
     
-    func play(rate:Float){
+    func play(_ rate:Float){
         stopAll();
         audioPlayer.rate = rate;
         audioPlayer.play();
     }
     
-    func playPitch(pitch: Float) {
+    func playPitch(_ pitch: Float) {
+        do {
         stopAll();
         audioPlayerNode = AVAudioPlayerNode();
-        audioEngine.attachNode(audioPlayerNode);
+        audioEngine.attach(audioPlayerNode);
         
-        var changePitchEffect = AVAudioUnitTimePitch();
+        let changePitchEffect = AVAudioUnitTimePitch();
         changePitchEffect.pitch = pitch;
-        audioEngine.attachNode(changePitchEffect);
+        audioEngine.attach(changePitchEffect);
         
         audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil);
         audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil);
         
-        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil);
-        audioEngine.startAndReturnError(nil);
+        audioPlayerNode.scheduleFile(audioFile, at: nil, completionHandler: nil);
+        try audioEngine.start();
         
         audioPlayerNode.volume = 100;
         audioPlayerNode.play();
-        println("delay: \(interval)");
-        timer = NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: Selector("stopAll"), userInfo: nil, repeats: false);
+        print("delay: \(interval)");
+        timer = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(PlaySoundViewController.stopAll), userInfo: nil, repeats: false);
+        } catch {
+            print("Error in playback")
+        }
     }
     
-    @IBAction func slowButton(sender: UIButton) {
+    @IBAction func slowButton(_ sender: UIButton) {
         play(0.5);
     }
     
-    @IBAction func fastButton(sender: UIButton) {
+    @IBAction func fastButton(_ sender: UIButton) {
         play(1.5);
     }
     
-    @IBAction func chipmunkButton(sender: UIButton) {
+    @IBAction func chipmunkButton(_ sender: UIButton) {
         playPitch(1000);
     }
     
-    @IBAction func darthVaderButton(sender: UIButton) {
+    @IBAction func darthVaderButton(_ sender: UIButton) {
         playPitch(-1000);
         darthBackTrack.play();
     }
     
     
-    @IBAction func stopButton(sender: UIButton) {
+    @IBAction func stopButton(_ sender: UIButton) {
         stopAll();
     }
 }
