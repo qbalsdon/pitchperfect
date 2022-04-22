@@ -1,3 +1,5 @@
+# DEPRECATED: This project is no longer maintained
+
 # pitchperfect
 The first app I wrote for my Nanodegree course through Udacity
 
